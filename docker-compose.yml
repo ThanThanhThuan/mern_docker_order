@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # 1. Database Service
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  # 2. Backend Service
+  server:
+    build: ./server
+    container_name: mern_server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/purchase_orders
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+
+  # 3. Frontend Service
+  client:
+    build: ./client
+    container_name: mern_client
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+
+volumes:
+  mongo-data:
