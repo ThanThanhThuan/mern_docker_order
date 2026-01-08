@@ -69,5 +69,6 @@ Frontend: http://localhost:5173
 
 Backend API: http://localhost:5000/orders
 
-<img width="1007" height="697" alt="image" src="https://github.com/user-attachments/assets/43994e5a-e1fe-4218-bcf5-c432925d2c26" />
+<img width="1118" height="732" alt="image" src="https://github.com/user-attachments/assets/8f89769d-637d-424e-b928-084a9519257c" />
+
 
